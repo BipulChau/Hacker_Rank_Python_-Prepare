@@ -23,7 +23,6 @@
 
 students = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41], ['Harsh', 39]]
 
-
 # new_students = list(map(lambda e: {e[0]: e[1]}, students))
 # print(new_students)
 #
@@ -37,21 +36,46 @@ students = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41], 
 # marks = sorted(marks, reverse=True)
 # print(marks)
 
-def get_marks(student):
-    return student[1]
+# def get_marks(student):
+#     return student[1]
+#
+#
+# students.sort(key=lambda i: i[1], reverse=True)  # sort the entire students list in descending order of marks
+#
+# students_list_excluding_lowest_grade = list(
+#     filter(lambda j: j[1] != students[-1][1], students))  # filter the elements which have the lowest marks
+#
+# students_list_with_second_lowest_grade = list(filter(lambda k: k[1] == students_list_excluding_lowest_grade[-1][1],
+#                                                      students_list_excluding_lowest_grade))  # filter the elements whose marks are not equal to second-lowest marks
+# # students_list_with_second_lowest_grade = filter(lambda k: k[1] == students_list_excluding_lowest_grade[-1][1], students_list_excluding_lowest_grade)  # filter the elements whose marks are not equal to second-lowest marks
+#
+#
+# students_list_with_second_lowest_grade.sort()
+#
+# for e in students_list_with_second_lowest_grade:
+#     print(e[0])
+
+if __name__ == '__main__':
+    students = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
 
 
-students.sort(key=lambda i: i[1], reverse=True)  # sort the entire students list in descending order of marks
-print(students)
+    def get_marks(student):
+        return student[1]
 
-students_list_excluding_lowest_grade = list(filter(lambda j: j[1] != students[-1][1], students))  # filter the elements which have the lowest marks
-print(students_list_excluding_lowest_grade)
 
-# students_list_with_second_lowest_grade = list(filter(lambda k: k[1] == students_list_excluding_lowest_grade[-1][1], students_list_excluding_lowest_grade))  # filter the elements whose marks are not equal to second-lowest marks
-students_list_with_second_lowest_grade = filter(lambda k: k[1] == students_list_excluding_lowest_grade[-1][1], students_list_excluding_lowest_grade)  # filter the elements whose marks are not equal to second-lowest marks
+    students.sort(key=lambda i: i[1], reverse=True)  # sort the entire students list in descending order of marks
 
-print(students_list_with_second_lowest_grade)
+    students_list_excluding_lowest_grade = list(
+        filter(lambda j: j[1] != students[-1][1], students))  # filter the elements which have the lowest marks
 
-for e in students_list_with_second_lowest_grade:
-    print(e[0])
+    students_list_with_second_lowest_grade = list(filter(lambda k: k[1] == students_list_excluding_lowest_grade[-1][1],
+                                                         students_list_excluding_lowest_grade))  # filter the elements whose marks are not equal to second-lowest marks
 
+    students_list_with_second_lowest_grade.sort()
+
+    for e in students_list_with_second_lowest_grade:
+        print(e[0])
